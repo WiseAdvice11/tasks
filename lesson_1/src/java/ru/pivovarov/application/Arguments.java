@@ -1,11 +1,11 @@
-package ru.world.scanner;
+package ru.pivovarov.application;
 
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
 @Parameters (separators = "=")
 
-class Arguments {
+public class Arguments {
 
 	@Parameter ( names = {"--path"})
 

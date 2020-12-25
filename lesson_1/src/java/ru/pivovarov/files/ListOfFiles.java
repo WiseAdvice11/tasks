@@ -1,23 +1,22 @@
-package ru.world.tool;
+package ru.pivovarov.files;
     
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
+	
 public class ListOfFiles {
 
-	public List<File> getListOfFiles(String path) {
+ List<File>  files = new ArrayList<>();
 
-    	File directory = new File(path); 
-        List<File> list = new ArrayList<>();
-       
+    public List<File> GetAllFiles(String path) {
+
+        File directory = new File(path);
+
         for (File file : directory.listFiles()) {
-            if (file.isFile()){
-                System.out.println(file + " <=  " + file.length() + " bytes => " + "\n");
+            if (file.isFile()) {
+                files.add(file);
             }
-            list.add(file);
         }
-        return list ;
-     }
+        return files;
+    }
 }
