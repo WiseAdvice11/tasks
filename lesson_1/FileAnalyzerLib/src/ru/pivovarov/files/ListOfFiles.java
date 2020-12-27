@@ -6,9 +6,11 @@ import java.util.List;
 	
 public class ListOfFiles {
 
- List<File>  files = new ArrayList<>();
+ 
 
-    public List<File> GetAllFiles(String path) {
+    public List<File>getAllFiles(String path) {
+
+        List<File>  files = new ArrayList<>();
 
         File directory = new File(path);
 

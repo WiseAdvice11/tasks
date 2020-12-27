@@ -17,7 +17,7 @@ public class Render {
 		.build()
 		.parse(args);
  		
-   	    for (File name : listOfFiles.GetAllFiles(arguments.path))
+   	    for (File name : listOfFiles.getAllFiles(arguments.path))
    	    {
             System.out.println(name +" "+ name.length() + " bytes");
         }
