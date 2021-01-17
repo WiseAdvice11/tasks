@@ -14,9 +14,9 @@ public class Launcher {
 
 
         JCommander.newBuilder()
-                .addObject(converter)
-                .build()
-                .parse(args);
+                  .addObject(converter)
+                  .build()
+                  .parse(args);
 
       
         renderer.render(folderProcessor.getInformation(converter.getReferences()));

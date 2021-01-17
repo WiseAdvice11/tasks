@@ -8,8 +8,7 @@ import java.util.List;
 import com.beust.jcommander.converters.CommaParameterSplitter;
 import com.beust.jcommander.converters.IParameterSplitter;
 
-
-public class Converter  implements IParameterSplitter {
+ public class Converter  implements IParameterSplitter {
 
     @Parameter(  names = { "--paths"}, splitter = CommaParameterSplitter.class)
     private List<String> references;
@@ -21,10 +20,7 @@ public class Converter  implements IParameterSplitter {
     }
 
     public List<String> getReferences (){
-
         return references;
     }
-
-
 }
 
