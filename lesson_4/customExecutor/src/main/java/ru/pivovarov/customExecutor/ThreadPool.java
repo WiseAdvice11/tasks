@@ -3,6 +3,7 @@ package ru.pivovarov.customExecutor;
 import java.util.Deque;
 import java.util.LinkedList;
 
+
 public class ThreadPool {
 
     private PoolWorker [] threads;
@@ -17,12 +18,15 @@ public class ThreadPool {
             threads[i].start();
         }
     }
+
     public void submit (Runnable task){
         synchronized (tasks){
             tasks.add(task);
-            tasks.notify();
+            tasks.notifyAll();
+
         }
     }
+
     private  class PoolWorker extends Thread {
 
         @Override
@@ -30,16 +34,17 @@ public class ThreadPool {
             System.out.println("in RUN");
             while (true) {
                 synchronized(tasks) {
-                    while (tasks.isEmpty()){
+                    while (tasks.isEmpty()) {
+
                         try {
                             tasks.wait();
                         } catch (InterruptedException e) {
                             throw new IllegalArgumentException(e);
                         }
                     }
-                    Runnable instruction = tasks.removeFirst();
-                    instruction.run();
                 }
+                Runnable instruction = tasks.removeFirst();
+                instruction.run();
             }
         }
     }
